@@ -1,0 +1,1068 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OperationalPortalDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HolidayName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InvoiceMonthly">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceNo" Type="varchar" MaxLength="100" />
+          <Property Name="ActualSowDetailId" Type="bigint" />
+          <Property Name="SowId" Type="varchar" MaxLength="100" />
+          <Property Name="HoursMonthly" Type="int" Nullable="false" />
+          <Property Name="SubmittedDate" Type="date" />
+          <Property Name="ReceivedDate" Type="date" />
+          <Property Name="Month" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="AdjustedAmount" Type="money" />
+          <Property Name="TotalAmount" Type="money" />
+          <Property Name="PONo" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="MSA">
+          <Key>
+            <PropertyRef Name="MSAId" />
+          </Key>
+          <Property Name="MSAId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="MSAEntity" Type="varchar" MaxLength="50" />
+          <Property Name="ContractType" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="PoDetails">
+          <Key>
+            <PropertyRef Name="PoDId" />
+          </Key>
+          <Property Name="PoDId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PoId" Type="int" Nullable="false" />
+          <Property Name="MileStones" Type="date" Nullable="false" />
+          <Property Name="PoNo" Type="int" />
+          <Property Name="Amount" Type="money" />
+        </EntityType>
+        <EntityType Name="PoHeader">
+          <Key>
+            <PropertyRef Name="PoId" />
+          </Key>
+          <Property Name="PoId" Type="int" Nullable="false" />
+          <Property Name="SowId" Type="int" />
+          <Property Name="PoNo" Type="varchar" MaxLength="100" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="ApprovedBy" Type="varchar" MaxLength="100" />
+          <Property Name="ApprovedDate" Type="date" />
+          <Property Name="CustomerId" Type="bigint" />
+          <Property Name="Value" Type="money" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="TotalResourceCount" Type="int" />
+        </EntityType>
+        <EntityType Name="PoUtilization">
+          <Key>
+            <PropertyRef Name="PoUId" />
+          </Key>
+          <Property Name="PoUId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PoDId" Type="bigint" Nullable="false" />
+          <Property Name="PoNo" Type="varchar" MaxLength="50" />
+          <Property Name="PoMonthlyValue" Type="money" />
+          <Property Name="Month" Type="int" />
+          <Property Name="PoBalance" Type="money" />
+          <Property Name="PoUtilization" Type="money" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="CrmId" Type="varchar" MaxLength="50" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="SowName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProjectEmployees">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpName" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProjectWorkingDays">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Month" Type="varchar" MaxLength="50" />
+          <Property Name="WorkingDays" Type="int" />
+          <Property Name="SowId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationId" Type="int" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="ShiftAllowance">
+          <Key>
+            <PropertyRef Name="ShiftId" />
+          </Key>
+          <Property Name="ShiftId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Amount" Type="bigint" Nullable="false" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="ParentId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SowDetail">
+          <Key>
+            <PropertyRef Name="SowDetailId" />
+          </Key>
+          <Property Name="SowDetailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SowId" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleDescription" Type="varchar" MaxLength="200" />
+          <Property Name="Location" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="BillRate" Type="numeric" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Currency" Type="varchar" MaxLength="20" />
+          <Property Name="HrsPerDay" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
+          <Property Name="UtilizationPercentage" Type="int" />
+          <Property Name="SowHrsPerDay" Type="int" />
+          <Property Name="SowAmount" Type="money" />
+          <Property Name="CalculatedAmount" Type="money" />
+        </EntityType>
+        <EntityType Name="SowDetailActual">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SowDetailId" Type="int" Nullable="false" />
+          <Property Name="UtilizationPercentage" Type="int" />
+          <Property Name="TotalAmount" Type="int" />
+          <Property Name="NoOfDays" Type="int" />
+          <Property Name="EmpId" Type="int" Nullable="false" />
+          <Property Name="Month" Type="varchar" MaxLength="50" />
+          <Property Name="Year" Type="int" />
+        </EntityType>
+        <EntityType Name="SowHeader">
+          <Key>
+            <PropertyRef Name="SowId" />
+          </Key>
+          <Property Name="SowId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="ApprovedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="SowValue" Type="money" />
+          <Property Name="TotalResourceCount" Type="int" />
+        </EntityType>
+        <EntityType Name="SowProject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SowId" Type="int" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ActualSowDetail_ProposedSowDetail1">
+          <End Role="SowDetail" Type="Self.SowDetail" Multiplicity="1" />
+          <End Role="SowDetailActual" Type="Self.SowDetailActual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SowDetail">
+              <PropertyRef Name="SowDetailId" />
+            </Principal>
+            <Dependent Role="SowDetailActual">
+              <PropertyRef Name="SowDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceMonthly_SowDetailActual">
+          <End Role="SowDetailActual" Type="Self.SowDetailActual" Multiplicity="0..1" />
+          <End Role="InvoiceMonthly" Type="Self.InvoiceMonthly" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SowDetailActual">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvoiceMonthly">
+              <PropertyRef Name="ActualSowDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MSA_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="MSA" Type="Self.MSA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="MSA">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoDetails_PoHeader">
+          <End Role="PoHeader" Type="Self.PoHeader" Multiplicity="1" />
+          <End Role="PoDetails" Type="Self.PoDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoHeader">
+              <PropertyRef Name="PoId" />
+            </Principal>
+            <Dependent Role="PoDetails">
+              <PropertyRef Name="PoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoHeader_SowHeader">
+          <End Role="SowHeader" Type="Self.SowHeader" Multiplicity="0..1" />
+          <End Role="PoHeader" Type="Self.PoHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SowHeader">
+              <PropertyRef Name="SowId" />
+            </Principal>
+            <Dependent Role="PoHeader">
+              <PropertyRef Name="SowId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoUtilization_PoDetails">
+          <End Role="PoDetails" Type="Self.PoDetails" Multiplicity="1" />
+          <End Role="PoUtilization" Type="Self.PoUtilization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoDetails">
+              <PropertyRef Name="PoDId" />
+            </Principal>
+            <Dependent Role="PoUtilization">
+              <PropertyRef Name="PoDId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectWorkingDays_SowHeader">
+          <End Role="SowHeader" Type="Self.SowHeader" Multiplicity="1" />
+          <End Role="ProjectWorkingDays" Type="Self.ProjectWorkingDays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SowHeader">
+              <PropertyRef Name="SowId" />
+            </Principal>
+            <Dependent Role="ProjectWorkingDays">
+              <PropertyRef Name="SowId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftAllowance_ProjectEmployees">
+          <End Role="ProjectEmployees" Type="Self.ProjectEmployees" Multiplicity="1" />
+          <End Role="ShiftAllowance" Type="Self.ShiftAllowance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectEmployees">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="ShiftAllowance">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SowHeader_SowHeader">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="SowHeader" Type="Self.SowHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="SowHeader">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SowProject_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="SowProject" Type="Self.SowProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SowProject">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInRoles_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="UsersInRoles" Type="Self.UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_GenerateInvoice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="rfc">
+          <Parameter Name="SowId" Type="varchar" Mode="In" />
+          <Parameter Name="Month" Type="int" Mode="In" />
+          <Parameter Name="Year" Type="int" Mode="In" />
+          <Parameter Name="PONo" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="OperationalPortalDBModelStoreContainer">
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="InvoiceMonthly" EntityType="Self.InvoiceMonthly" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="MSA" EntityType="Self.MSA" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="PoDetails" EntityType="Self.PoDetails" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="PoHeader" EntityType="Self.PoHeader" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="PoUtilization" EntityType="Self.PoUtilization" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="ProjectEmployees" EntityType="Self.ProjectEmployees" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="ProjectWorkingDays" EntityType="Self.ProjectWorkingDays" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="ShiftAllowance" EntityType="Self.ShiftAllowance" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="SowDetail" EntityType="Self.SowDetail" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="SowDetailActual" EntityType="Self.SowDetailActual" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="SowHeader" EntityType="Self.SowHeader" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="SowProject" EntityType="Self.SowProject" Schema="rfc" store:Type="Tables" />
+          <EntitySet Name="UsersInRoles" EntityType="Self.UsersInRoles" Schema="rfc" store:Type="Tables" />
+          <AssociationSet Name="FK_ActualSowDetail_ProposedSowDetail1" Association="Self.FK_ActualSowDetail_ProposedSowDetail1">
+            <End Role="SowDetail" EntitySet="SowDetail" />
+            <End Role="SowDetailActual" EntitySet="SowDetailActual" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceMonthly_SowDetailActual" Association="Self.FK_InvoiceMonthly_SowDetailActual">
+            <End Role="SowDetailActual" EntitySet="SowDetailActual" />
+            <End Role="InvoiceMonthly" EntitySet="InvoiceMonthly" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MSA_Customers" Association="Self.FK_MSA_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="MSA" EntitySet="MSA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoDetails_PoHeader" Association="Self.FK_PoDetails_PoHeader">
+            <End Role="PoHeader" EntitySet="PoHeader" />
+            <End Role="PoDetails" EntitySet="PoDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoHeader_SowHeader" Association="Self.FK_PoHeader_SowHeader">
+            <End Role="SowHeader" EntitySet="SowHeader" />
+            <End Role="PoHeader" EntitySet="PoHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoUtilization_PoDetails" Association="Self.FK_PoUtilization_PoDetails">
+            <End Role="PoDetails" EntitySet="PoDetails" />
+            <End Role="PoUtilization" EntitySet="PoUtilization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectWorkingDays_SowHeader" Association="Self.FK_ProjectWorkingDays_SowHeader">
+            <End Role="SowHeader" EntitySet="SowHeader" />
+            <End Role="ProjectWorkingDays" EntitySet="ProjectWorkingDays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftAllowance_ProjectEmployees" Association="Self.FK_ShiftAllowance_ProjectEmployees">
+            <End Role="ProjectEmployees" EntitySet="ProjectEmployees" />
+            <End Role="ShiftAllowance" EntitySet="ShiftAllowance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SowHeader_SowHeader" Association="Self.FK_SowHeader_SowHeader">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="SowHeader" EntitySet="SowHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SowProject_Project" Association="Self.FK_SowProject_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="SowProject" EntitySet="SowProject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInRoles_Roles" Association="Self.FK_UsersInRoles_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UsersInRoles" EntitySet="UsersInRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OperationalPortalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MSAs" Relationship="Self.FK_MSA_Customers" FromRole="Customers" ToRole="MSA" />
+          <NavigationProperty Name="SowHeaders" Relationship="Self.FK_SowHeader_SowHeader" FromRole="Customers" ToRole="SowHeader" />
+        </EntityType>
+        <EntityType Name="Holiday">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HolidayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="InvoiceMonthly">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActualSowDetailId" Type="Int64" />
+          <Property Name="SowId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HoursMonthly" Type="Int32" Nullable="false" />
+          <Property Name="SubmittedDate" Type="DateTime" Precision="0" />
+          <Property Name="ReceivedDate" Type="DateTime" Precision="0" />
+          <Property Name="Month" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="AdjustedAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PONo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SowDetailActual" Relationship="Self.FK_InvoiceMonthly_SowDetailActual" FromRole="InvoiceMonthly" ToRole="SowDetailActual" />
+        </EntityType>
+        <EntityType Name="MSA">
+          <Key>
+            <PropertyRef Name="MSAId" />
+          </Key>
+          <Property Name="MSAId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="MSAEntity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractType" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_MSA_Customers" FromRole="MSA" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="PoDetail">
+          <Key>
+            <PropertyRef Name="PoDId" />
+          </Key>
+          <Property Name="PoDId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PoId" Type="Int32" Nullable="false" />
+          <Property Name="MileStones" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PoNo" Type="Int32" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="PoHeader" Relationship="Self.FK_PoDetails_PoHeader" FromRole="PoDetails" ToRole="PoHeader" />
+          <NavigationProperty Name="PoUtilizations" Relationship="Self.FK_PoUtilization_PoDetails" FromRole="PoDetails" ToRole="PoUtilization" />
+        </EntityType>
+        <EntityType Name="PoHeader">
+          <Key>
+            <PropertyRef Name="PoId" />
+          </Key>
+          <Property Name="PoId" Type="Int32" Nullable="false" />
+          <Property Name="SowId" Type="Int32" />
+          <Property Name="PoNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="0" />
+          <Property Name="CustomerId" Type="Int64" />
+          <Property Name="Value" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalResourceCount" Type="Int32" />
+          <NavigationProperty Name="PoDetails" Relationship="Self.FK_PoDetails_PoHeader" FromRole="PoHeader" ToRole="PoDetails" />
+          <NavigationProperty Name="SowHeader" Relationship="Self.FK_PoHeader_SowHeader" FromRole="PoHeader" ToRole="SowHeader" />
+        </EntityType>
+        <EntityType Name="PoUtilization">
+          <Key>
+            <PropertyRef Name="PoUId" />
+          </Key>
+          <Property Name="PoUId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PoDId" Type="Int64" Nullable="false" />
+          <Property Name="PoNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PoMonthlyValue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Month" Type="Int32" />
+          <Property Name="PoBalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PoUtilization1" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="PoDetail" Relationship="Self.FK_PoUtilization_PoDetails" FromRole="PoUtilization" ToRole="PoDetails" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CrmId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SowName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SowProjects" Relationship="Self.FK_SowProject_Project" FromRole="Project" ToRole="SowProject" />
+        </EntityType>
+        <EntityType Name="ProjectEmployee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ShiftAllowances" Relationship="Self.FK_ShiftAllowance_ProjectEmployees" FromRole="ProjectEmployees" ToRole="ShiftAllowance" />
+        </EntityType>
+        <EntityType Name="ProjectWorkingDay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Month" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorkingDays" Type="Int32" />
+          <Property Name="SowId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SowHeader" Relationship="Self.FK_ProjectWorkingDays_SowHeader" FromRole="ProjectWorkingDays" ToRole="SowHeader" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationId" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UsersInRoles" Relationship="Self.FK_UsersInRoles_Roles" FromRole="Roles" ToRole="UsersInRoles" />
+        </EntityType>
+        <EntityType Name="ShiftAllowance">
+          <Key>
+            <PropertyRef Name="ShiftId" />
+          </Key>
+          <Property Name="ShiftId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Amount" Type="Int64" Nullable="false" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <Property Name="ParentId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="ProjectEmployee" Relationship="Self.FK_ShiftAllowance_ProjectEmployees" FromRole="ShiftAllowance" ToRole="ProjectEmployees" />
+        </EntityType>
+        <EntityType Name="SowDetail">
+          <Key>
+            <PropertyRef Name="SowDetailId" />
+          </Key>
+          <Property Name="SowDetailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SowId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoleDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BillRate" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="Currency" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="HrsPerDay" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UtilizationPercentage" Type="Int32" />
+          <Property Name="SowHrsPerDay" Type="Int32" />
+          <Property Name="SowAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CalculatedAmount" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="SowDetailActuals" Relationship="Self.FK_ActualSowDetail_ProposedSowDetail1" FromRole="SowDetail" ToRole="SowDetailActual" />
+        </EntityType>
+        <EntityType Name="SowDetailActual">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SowDetailId" Type="Int32" Nullable="false" />
+          <Property Name="UtilizationPercentage" Type="Int32" />
+          <Property Name="TotalAmount" Type="Int32" />
+          <Property Name="NoOfDays" Type="Int32" />
+          <Property Name="EmpId" Type="Int32" Nullable="false" />
+          <Property Name="Month" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="Int32" />
+          <NavigationProperty Name="InvoiceMonthlies" Relationship="Self.FK_InvoiceMonthly_SowDetailActual" FromRole="SowDetailActual" ToRole="InvoiceMonthly" />
+          <NavigationProperty Name="SowDetail" Relationship="Self.FK_ActualSowDetail_ProposedSowDetail1" FromRole="SowDetailActual" ToRole="SowDetail" />
+        </EntityType>
+        <EntityType Name="SowHeader">
+          <Key>
+            <PropertyRef Name="SowId" />
+          </Key>
+          <Property Name="SowId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="SowValue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TotalResourceCount" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_SowHeader_SowHeader" FromRole="SowHeader" ToRole="Customers" />
+          <NavigationProperty Name="PoHeaders" Relationship="Self.FK_PoHeader_SowHeader" FromRole="SowHeader" ToRole="PoHeader" />
+          <NavigationProperty Name="ProjectWorkingDays" Relationship="Self.FK_ProjectWorkingDays_SowHeader" FromRole="SowHeader" ToRole="ProjectWorkingDays" />
+        </EntityType>
+        <EntityType Name="SowProject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SowId" Type="Int32" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_SowProject_Project" FromRole="SowProject" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="UsersInRole">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_UsersInRoles_Roles" FromRole="UsersInRoles" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK_MSA_Customers">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="MSA" Type="Self.MSA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="MSA">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SowHeader_SowHeader">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="SowHeader" Type="Self.SowHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="SowHeader">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceMonthly_SowDetailActual">
+          <End Role="SowDetailActual" Type="Self.SowDetailActual" Multiplicity="0..1" />
+          <End Role="InvoiceMonthly" Type="Self.InvoiceMonthly" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SowDetailActual">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InvoiceMonthly">
+              <PropertyRef Name="ActualSowDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoDetails_PoHeader">
+          <End Role="PoHeader" Type="Self.PoHeader" Multiplicity="1" />
+          <End Role="PoDetails" Type="Self.PoDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoHeader">
+              <PropertyRef Name="PoId" />
+            </Principal>
+            <Dependent Role="PoDetails">
+              <PropertyRef Name="PoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoUtilization_PoDetails">
+          <End Role="PoDetails" Type="Self.PoDetail" Multiplicity="1" />
+          <End Role="PoUtilization" Type="Self.PoUtilization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PoDetails">
+              <PropertyRef Name="PoDId" />
+            </Principal>
+            <Dependent Role="PoUtilization">
+              <PropertyRef Name="PoDId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PoHeader_SowHeader">
+          <End Role="SowHeader" Type="Self.SowHeader" Multiplicity="0..1" />
+          <End Role="PoHeader" Type="Self.PoHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SowHeader">
+              <PropertyRef Name="SowId" />
+            </Principal>
+            <Dependent Role="PoHeader">
+              <PropertyRef Name="SowId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SowProject_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="SowProject" Type="Self.SowProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SowProject">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShiftAllowance_ProjectEmployees">
+          <End Role="ProjectEmployees" Type="Self.ProjectEmployee" Multiplicity="1" />
+          <End Role="ShiftAllowance" Type="Self.ShiftAllowance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectEmployees">
+              <PropertyRef Name="EmpId" />
+            </Principal>
+            <Dependent Role="ShiftAllowance">
+              <PropertyRef Name="EmpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectWorkingDays_SowHeader">
+          <End Role="SowHeader" Type="Self.SowHeader" Multiplicity="1" />
+          <End Role="ProjectWorkingDays" Type="Self.ProjectWorkingDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SowHeader">
+              <PropertyRef Name="SowId" />
+            </Principal>
+            <Dependent Role="ProjectWorkingDays">
+              <PropertyRef Name="SowId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersInRoles_Roles">
+          <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+          <End Role="UsersInRoles" Type="Self.UsersInRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActualSowDetail_ProposedSowDetail1">
+          <End Role="SowDetail" Type="Self.SowDetail" Multiplicity="1" />
+          <End Role="SowDetailActual" Type="Self.SowDetailActual" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SowDetail">
+              <PropertyRef Name="SowDetailId" />
+            </Principal>
+            <Dependent Role="SowDetailActual">
+              <PropertyRef Name="SowDetailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OperationalPortalDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Holidays" EntityType="Self.Holiday" />
+          <EntitySet Name="InvoiceMonthlies" EntityType="Self.InvoiceMonthly" />
+          <EntitySet Name="MSAs" EntityType="Self.MSA" />
+          <EntitySet Name="PoDetails" EntityType="Self.PoDetail" />
+          <EntitySet Name="PoHeaders" EntityType="Self.PoHeader" />
+          <EntitySet Name="PoUtilizations" EntityType="Self.PoUtilization" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="ProjectEmployees" EntityType="Self.ProjectEmployee" />
+          <EntitySet Name="ProjectWorkingDays" EntityType="Self.ProjectWorkingDay" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="ShiftAllowances" EntityType="Self.ShiftAllowance" />
+          <EntitySet Name="SowDetails" EntityType="Self.SowDetail" />
+          <EntitySet Name="SowDetailActuals" EntityType="Self.SowDetailActual" />
+          <EntitySet Name="SowHeaders" EntityType="Self.SowHeader" />
+          <EntitySet Name="SowProjects" EntityType="Self.SowProject" />
+          <EntitySet Name="UsersInRoles" EntityType="Self.UsersInRole" />
+          <AssociationSet Name="FK_MSA_Customers" Association="Self.FK_MSA_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="MSA" EntitySet="MSAs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SowHeader_SowHeader" Association="Self.FK_SowHeader_SowHeader">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="SowHeader" EntitySet="SowHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceMonthly_SowDetailActual" Association="Self.FK_InvoiceMonthly_SowDetailActual">
+            <End Role="SowDetailActual" EntitySet="SowDetailActuals" />
+            <End Role="InvoiceMonthly" EntitySet="InvoiceMonthlies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoDetails_PoHeader" Association="Self.FK_PoDetails_PoHeader">
+            <End Role="PoHeader" EntitySet="PoHeaders" />
+            <End Role="PoDetails" EntitySet="PoDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoUtilization_PoDetails" Association="Self.FK_PoUtilization_PoDetails">
+            <End Role="PoDetails" EntitySet="PoDetails" />
+            <End Role="PoUtilization" EntitySet="PoUtilizations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PoHeader_SowHeader" Association="Self.FK_PoHeader_SowHeader">
+            <End Role="SowHeader" EntitySet="SowHeaders" />
+            <End Role="PoHeader" EntitySet="PoHeaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SowProject_Project" Association="Self.FK_SowProject_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="SowProject" EntitySet="SowProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShiftAllowance_ProjectEmployees" Association="Self.FK_ShiftAllowance_ProjectEmployees">
+            <End Role="ProjectEmployees" EntitySet="ProjectEmployees" />
+            <End Role="ShiftAllowance" EntitySet="ShiftAllowances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectWorkingDays_SowHeader" Association="Self.FK_ProjectWorkingDays_SowHeader">
+            <End Role="SowHeader" EntitySet="SowHeaders" />
+            <End Role="ProjectWorkingDays" EntitySet="ProjectWorkingDays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersInRoles_Roles" Association="Self.FK_UsersInRoles_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UsersInRoles" EntitySet="UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActualSowDetail_ProposedSowDetail1" Association="Self.FK_ActualSowDetail_ProposedSowDetail1">
+            <End Role="SowDetail" EntitySet="SowDetails" />
+            <End Role="SowDetailActual" EntitySet="SowDetailActuals" />
+          </AssociationSet>
+          <FunctionImport Name="sp_GenerateInvoice">
+            <Parameter Name="SowId" Mode="In" Type="String" />
+            <Parameter Name="Month" Mode="In" Type="Int32" />
+            <Parameter Name="Year" Mode="In" Type="Int32" />
+            <Parameter Name="PONo" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OperationalPortalDBModelStoreContainer" CdmEntityContainer="OperationalPortalDBEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holidays">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.Holiday">
+              <MappingFragment StoreEntitySet="Holiday">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="HolidayName" ColumnName="HolidayName" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoiceMonthlies">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.InvoiceMonthly">
+              <MappingFragment StoreEntitySet="InvoiceMonthly">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="ActualSowDetailId" ColumnName="ActualSowDetailId" />
+                <ScalarProperty Name="SowId" ColumnName="SowId" />
+                <ScalarProperty Name="HoursMonthly" ColumnName="HoursMonthly" />
+                <ScalarProperty Name="SubmittedDate" ColumnName="SubmittedDate" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="AdjustedAmount" ColumnName="AdjustedAmount" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="PONo" ColumnName="PONo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MSAs">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.MSA">
+              <MappingFragment StoreEntitySet="MSA">
+                <ScalarProperty Name="MSAId" ColumnName="MSAId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="MSAEntity" ColumnName="MSAEntity" />
+                <ScalarProperty Name="ContractType" ColumnName="ContractType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PoDetails">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.PoDetail">
+              <MappingFragment StoreEntitySet="PoDetails">
+                <ScalarProperty Name="PoDId" ColumnName="PoDId" />
+                <ScalarProperty Name="PoId" ColumnName="PoId" />
+                <ScalarProperty Name="MileStones" ColumnName="MileStones" />
+                <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PoHeaders">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.PoHeader">
+              <MappingFragment StoreEntitySet="PoHeader">
+                <ScalarProperty Name="PoId" ColumnName="PoId" />
+                <ScalarProperty Name="SowId" ColumnName="SowId" />
+                <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="TotalResourceCount" ColumnName="TotalResourceCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PoUtilizations">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.PoUtilization">
+              <MappingFragment StoreEntitySet="PoUtilization">
+                <ScalarProperty Name="PoUId" ColumnName="PoUId" />
+                <ScalarProperty Name="PoDId" ColumnName="PoDId" />
+                <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+                <ScalarProperty Name="PoMonthlyValue" ColumnName="PoMonthlyValue" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="PoBalance" ColumnName="PoBalance" />
+                <ScalarProperty Name="PoUtilization1" ColumnName="PoUtilization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CrmId" ColumnName="CrmId" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SowName" ColumnName="SowName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectEmployees">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.ProjectEmployee">
+              <MappingFragment StoreEntitySet="ProjectEmployees">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectWorkingDays">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.ProjectWorkingDay">
+              <MappingFragment StoreEntitySet="ProjectWorkingDays">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+                <ScalarProperty Name="SowId" ColumnName="SowId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShiftAllowances">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.ShiftAllowance">
+              <MappingFragment StoreEntitySet="ShiftAllowance">
+                <ScalarProperty Name="ShiftId" ColumnName="ShiftId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SowDetails">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.SowDetail">
+              <MappingFragment StoreEntitySet="SowDetail">
+                <ScalarProperty Name="SowDetailId" ColumnName="SowDetailId" />
+                <ScalarProperty Name="SowId" ColumnName="SowId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="BillRate" ColumnName="BillRate" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="HrsPerDay" ColumnName="HrsPerDay" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="UtilizationPercentage" ColumnName="UtilizationPercentage" />
+                <ScalarProperty Name="SowHrsPerDay" ColumnName="SowHrsPerDay" />
+                <ScalarProperty Name="SowAmount" ColumnName="SowAmount" />
+                <ScalarProperty Name="CalculatedAmount" ColumnName="CalculatedAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SowDetailActuals">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.SowDetailActual">
+              <MappingFragment StoreEntitySet="SowDetailActual">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SowDetailId" ColumnName="SowDetailId" />
+                <ScalarProperty Name="UtilizationPercentage" ColumnName="UtilizationPercentage" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="NoOfDays" ColumnName="NoOfDays" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SowHeaders">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.SowHeader">
+              <MappingFragment StoreEntitySet="SowHeader">
+                <ScalarProperty Name="SowId" ColumnName="SowId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="SowValue" ColumnName="SowValue" />
+                <ScalarProperty Name="TotalResourceCount" ColumnName="TotalResourceCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SowProjects">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.SowProject">
+              <MappingFragment StoreEntitySet="SowProject">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SowId" ColumnName="SowId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersInRoles">
+            <EntityTypeMapping TypeName="OperationalPortalDBModel.UsersInRole">
+              <MappingFragment StoreEntitySet="UsersInRoles">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GenerateInvoice" FunctionName="OperationalPortalDBModel.Store.sp_GenerateInvoice" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
