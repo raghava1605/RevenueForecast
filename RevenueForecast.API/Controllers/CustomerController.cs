@@ -8,9 +8,11 @@ using RevenueForecast.Common.Business;
 using RevenueForecast.Common.Models.Interfaces;
 using RevenueForecast.Common.Data;
 using RevenueForecast.Common.Models;
+using System.Web.Http.Cors;
 
 namespace RevenueForecast.API.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CustomerController : ApiController
     {
         #region Variables
@@ -49,7 +51,7 @@ namespace RevenueForecast.API.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult SaveJob([FromBody]CustomerModel customerModel)
+        public IHttpActionResult SaveCustomer([FromBody]CustomerModel customerModel)
         {
             var customers = _customerInfo.SaveCustomerDetails(customerModel);
             if (customers == null)
@@ -60,7 +62,7 @@ namespace RevenueForecast.API.Controllers
         }
 
         [HttpDelete]
-        public IHttpActionResult RemoveJob(int customerId)
+        public IHttpActionResult RemoveCustomer(int customerId)
         {
             var customers = _customerInfo.DeleteCustomer(customerId);
             if (customers == null)
