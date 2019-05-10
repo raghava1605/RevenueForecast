@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RevenueForecast.Common.Models;
 using AutoMapper;
+using NLog;
 
 namespace RevenueForecast.Common.Business
 {
@@ -14,12 +15,15 @@ namespace RevenueForecast.Common.Business
     {
         #region Variables
         private OperationalPortalDBEntities _OperationalPortalEntities;
+      //  private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Constructors
         public CustomerRepository(OperationalPortalDBEntities OperationalPortalEntities)
         {
+           // logger.Info("OperationalPortalEntities Instance is going to create");
             _OperationalPortalEntities = OperationalPortalEntities;
+          //  logger.Info("OperationalPortalEntities Instance is created successfully");
         }
         #endregion
 
@@ -30,6 +34,7 @@ namespace RevenueForecast.Common.Business
         /// <returns></returns>
         public IEnumerable<CustomerModel> GetCustomers()
         {
+            //logger.Info("Start Fetch Customer");
             List<Customer> customers = _OperationalPortalEntities.Customers.ToList();
             List<CustomerModel> customerList = Mapper.Map<List<Customer>, List<CustomerModel>>(customers);
             return customerList;

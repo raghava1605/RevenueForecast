@@ -10,8 +10,8 @@ namespace RevenueForecast.Common.Models
     {
         public int MSAId { get; set; }
         public int CustomerId { get; set; }
-        public DateTime? StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
         public string MSAEntity { get; set; }
         public string ContractType { get; set; }
     }

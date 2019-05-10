@@ -9,6 +9,7 @@ using RevenueForecast.Common.Models.Interfaces;
 using RevenueForecast.Common.Data;
 using RevenueForecast.Common.Models;
 using System.Web.Http.Cors;
+using NLog;
 
 namespace RevenueForecast.API.Controllers
 {
@@ -17,6 +18,7 @@ namespace RevenueForecast.API.Controllers
     {
         #region Variables
         ICustomer _customerInfo;
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         #endregion
 
         #region Constructors
@@ -31,6 +33,7 @@ namespace RevenueForecast.API.Controllers
         [HttpGet]
         public IHttpActionResult Get()
         {
+            logger.Info("Get Customers");
             var customers = _customerInfo.GetCustomers();
             if (customers == null)
             {

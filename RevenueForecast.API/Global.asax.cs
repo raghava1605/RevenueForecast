@@ -38,6 +38,9 @@ namespace RevenueForecast.API
             // Register your Web API controllers.
             builder.RegisterApiControllers(typeof(WebApiApplication).Assembly);
             builder.RegisterType<CustomerRepository>().As<ICustomer>().SingleInstance();
+            builder.RegisterType<MSARepository>().As<IMSA>().SingleInstance();
+            builder.RegisterType<PoHeaderRepository>().As<IPoHeader>().SingleInstance();
+            builder.RegisterType<SowHeaderRepository>().As<ISowHeader>().SingleInstance();
             builder.RegisterType<OperationalPortalDBEntities>().SingleInstance();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
