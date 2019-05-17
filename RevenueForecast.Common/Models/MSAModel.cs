@@ -14,5 +14,9 @@ namespace RevenueForecast.Common.Models
         public Nullable<System.DateTime> EndDate { get; set; }
         public string MSAEntity { get; set; }
         public string ContractType { get; set; }
+
+        public string CustomerName { get; set; }
+        public string Description { get; set; }
+        public string Owner { get; set; }
     }
 }

@@ -15,7 +15,11 @@ namespace RevenueForecast.API.App_Start
             Mapper.Initialize((config) =>
             {
                 config.CreateMap<Customer, CustomerModel>().ReverseMap();
-                config.CreateMap<MSA, MSAModel>().ReverseMap();
+                config.CreateMap<MSA, MSAModel>()
+                .ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.Customer.CustomerName))
+                .ForMember(dest => dest.Owner, opt => opt.MapFrom(src => src.Customer.Owner))
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Customer.Description))
+                .ReverseMap();
                 config.CreateMap<PoHeader, PoHeaderModel>().ReverseMap();
                 config.CreateMap<SowHeader, SowHeaderModel>().ReverseMap();
             });

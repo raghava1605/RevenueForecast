@@ -30,7 +30,9 @@ namespace RevenueForecast.Common.Business
         /// <returns></returns>
         public IEnumerable<MSAModel> GetMSA()
         {
-            List<MSA> msa = _OperationalPortalEntities.MSAs.ToList();
+            //var w = _OperationalPortalEntities.MSAs.Include("Customer");
+
+            List<MSA> msa = _OperationalPortalEntities.MSAs.Include("Customer").ToList();
             List<MSAModel> msaList = Mapper.Map<List<MSA>, List<MSAModel>>(msa);
             return msaList;
         }

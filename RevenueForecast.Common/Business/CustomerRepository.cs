@@ -39,6 +39,7 @@ namespace RevenueForecast.Common.Business
             List<CustomerModel> customerList = Mapper.Map<List<Customer>, List<CustomerModel>>(customers);
             return customerList;
         }
+
         public CustomerModel GetCustomerById(int customerId)
         {
             var customer = _OperationalPortalEntities.Customers.FirstOrDefault(x => x.CustomerId == customerId);
