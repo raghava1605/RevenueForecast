@@ -41,6 +41,7 @@ namespace RevenueForecast.API
             builder.RegisterType<MSARepository>().As<IMSA>().SingleInstance();
             builder.RegisterType<PoHeaderRepository>().As<IPoHeader>().SingleInstance();
             builder.RegisterType<SowHeaderRepository>().As<ISowHeader>().SingleInstance();
+            builder.RegisterType<SowPlannedRepository>().As<ISowPlanned>().SingleInstance();
             builder.RegisterType<OperationalPortalDBEntities>().SingleInstance();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

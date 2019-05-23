@@ -11,16 +11,16 @@ using System.Web.Http.Cors;
 namespace RevenueForecast.API.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class PoHeaderController : ApiController
+    public class SowPlannedController : ApiController
     {
         #region Variables
-        IPoHeader _poheaderInfo;
+        ISowPlanned _sowplannedInfo;
         #endregion
 
         #region Constructors
-        public PoHeaderController(IPoHeader poheaderInfo)
+        public SowPlannedController(ISowPlanned sowplannedInfo)
         {
-            _poheaderInfo = poheaderInfo;
+            _sowplannedInfo = sowplannedInfo;
         }
         #endregion
 
@@ -29,48 +29,46 @@ namespace RevenueForecast.API.Controllers
         [HttpGet]
         public IHttpActionResult Get()
         {
-            var poheader = _poheaderInfo.GetPoHeaders();
-            if (poheader == null)
+            var sowheader = _sowplannedInfo.GetSowPlannedDetails();
+            if (sowheader == null)
             {
                 return NotFound();
             }
-            return Ok(poheader);
+            return Ok(sowheader);
         }
 
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
-            var poheader = _poheaderInfo.GetPoHeadersById(id);
-            if (poheader == null)
+            var sowdetails = _sowplannedInfo.GetSowPlannedDetailsById(id);
+            if (sowdetails == null)
             {
                 return NotFound();
             }
-            return Ok(poheader);
+            return Ok(sowdetails);
         }
 
         [HttpPost]
-        public IHttpActionResult SavePoHeader([FromBody]PoHeaderModel poHeaderModel)
+        public IHttpActionResult SaveSowHeader([FromBody]SowPlannedModel sowPlannedModel)
         {
-            var poheader = _poheaderInfo.SavePoHeadersDetails(poHeaderModel);
-            if (poheader == null)
+            var sowdetails = _sowplannedInfo.SaveSowPlannedDetails(sowPlannedModel);
+            if (sowdetails == null)
             {
                 return NotFound();
             }
-            return Ok(poheader);
+            return Ok(sowdetails);
         }
 
         [HttpDelete]
-        public IHttpActionResult RemovePoHeader(int id)
+        public IHttpActionResult RemoveSowHeader(int id)
         {
-            var poheader = _poheaderInfo.DeletePoHeaders(id);
-            if (poheader == null)
+            var sowdetails = _sowplannedInfo.DeleteSowPlannedDetail(id);
+            if (sowdetails == null)
             {
                 return NotFound();
             }
-            return Ok(poheader);
+            return Ok(sowdetails);
         }
         #endregion
     }
-
-    
 }

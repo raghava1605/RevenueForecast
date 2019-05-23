@@ -56,6 +56,7 @@ namespace RevenueForecast.Common.Business
                 else
                 {
                     poHeader = new PoHeader();
+                    poHeader.SowHeader = null;
                     Mapper.Map(poHeaderModel, poHeader);
                     _OperationalPortalEntities.PoHeaders.Add(poHeader);
                     result = "PoHeader Saved Successfully";

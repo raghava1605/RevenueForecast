@@ -21,7 +21,13 @@ namespace RevenueForecast.API.App_Start
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Customer.Description))
                 .ReverseMap();
                 config.CreateMap<PoHeader, PoHeaderModel>().ReverseMap();
-                config.CreateMap<SowHeader, SowHeaderModel>().ReverseMap();
+                config.CreateMap<SowHeader, SowHeaderModel>()
+                .ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.Customer.CustomerName))
+                .ForMember(dest => dest.Owner, opt => opt.MapFrom(src => src.Customer.Owner))
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Customer.Description))
+                .ReverseMap();
+                config.CreateMap<SowDetail, SowPlannedModel>().ReverseMap();
+
             });
         }
     }

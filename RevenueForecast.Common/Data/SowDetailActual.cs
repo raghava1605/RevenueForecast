@@ -22,12 +22,12 @@ namespace RevenueForecast.Common.Data
     
         public long Id { get; set; }
         public int SowDetailId { get; set; }
-        public int? UtilizationPercentage { get; set; }
-        public int? TotalAmount { get; set; }
-        public int? NoOfDays { get; set; }
+        public Nullable<int> UtilizationPercentage { get; set; }
+        public Nullable<int> TotalAmount { get; set; }
+        public Nullable<int> NoOfDays { get; set; }
         public int EmpId { get; set; }
         public string Month { get; set; }
-        public int? Year { get; set; }
+        public Nullable<int> Year { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceMonthly> InvoiceMonthlies { get; set; }

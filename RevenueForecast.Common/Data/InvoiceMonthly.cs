@@ -21,8 +21,8 @@ namespace RevenueForecast.Common.Data
         public int HoursMonthly { get; set; }
         public Nullable<System.DateTime> SubmittedDate { get; set; }
         public Nullable<System.DateTime> ReceivedDate { get; set; }
-        public int? Month { get; set; }
-        public int? Year { get; set; }
+        public Nullable<int> Month { get; set; }
+        public Nullable<int> Year { get; set; }
         public Nullable<decimal> AdjustedAmount { get; set; }
         public Nullable<decimal> TotalAmount { get; set; }
         public string PONo { get; set; }

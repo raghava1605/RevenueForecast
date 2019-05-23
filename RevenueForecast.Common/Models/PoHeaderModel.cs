@@ -9,7 +9,7 @@ namespace RevenueForecast.Common.Models
     public class PoHeaderModel
     {
         public int PoId { get; set; }
-        public int? SowId { get; set; }
+        public int? SowHeaderId { get; set; }
         public string PoNo { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }

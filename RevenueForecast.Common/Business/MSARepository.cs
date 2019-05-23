@@ -13,6 +13,8 @@ namespace RevenueForecast.Common.Business
     public class MSARepository : IMSA
     {
         #region Variables
+
+        
         private OperationalPortalDBEntities _OperationalPortalEntities;
         #endregion
 
@@ -30,11 +32,25 @@ namespace RevenueForecast.Common.Business
         /// <returns></returns>
         public IEnumerable<MSAModel> GetMSA()
         {
-            //var w = _OperationalPortalEntities.MSAs.Include("Customer");
+            var msa = (from m in _OperationalPortalEntities.MSAs
+                       join ms in _OperationalPortalEntities.Customers
+                       on m.CustomerId equals ms.CustomerId
+                       select new MSAModel()
+                       {
+                           CustomerId = ms.CustomerId,
+                           CustomerName = ms.CustomerName,
+                           Description = ms.Description,
+                           StartDate = m.StartDate,
+                           EndDate = m.EndDate,
+                           ContractType = m.ContractType,
+                           MSAId = m.MSAId,
+                           MSAEntity = m.MSAEntity,
+                           Owner = ms.Owner
+                       }).ToList();
 
-            List<MSA> msa = _OperationalPortalEntities.MSAs.Include("Customer").ToList();
-            List<MSAModel> msaList = Mapper.Map<List<MSA>, List<MSAModel>>(msa);
-            return msaList;
+            //List<MSA> msa = _OperationalPortalEntities.MSAs.Include("Customer").ToList();
+           // List<MSAModel> msaList = Mapper.Map<List<MSA>, List<MSAModel>>(msa);
+            return msa;
         }
         public MSAModel GetMSAById(int msaId)
         {
@@ -49,7 +65,7 @@ namespace RevenueForecast.Common.Business
             try
             {
 
-                MSA msa = _OperationalPortalEntities.MSAs.FirstOrDefault(x => x.CustomerId == msaModel.MSAId);
+                MSA msa = _OperationalPortalEntities.MSAs.FirstOrDefault(x => x.MSAId == msaModel.MSAId);
                 if (msa != null)
                 {
                     Mapper.Map(msaModel, msa);

@@ -30,8 +30,8 @@ namespace RevenueForecast.Common.Data
         public int HrsPerDay { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
-        public int? UtilizationPercentage { get; set; }
-        public int? SowHrsPerDay { get; set; }
+        public Nullable<int> UtilizationPercentage { get; set; }
+        public Nullable<int> SowHrsPerDay { get; set; }
         public Nullable<decimal> SowAmount { get; set; }
         public Nullable<decimal> CalculatedAmount { get; set; }
     

@@ -209,6 +209,7 @@
     <Compile Include="Controllers\MSAController.cs" />
     <Compile Include="Controllers\PoHeaderController.cs" />
     <Compile Include="Controllers\SowHeaderController.cs" />
+    <Compile Include="Controllers\SowPlannedController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

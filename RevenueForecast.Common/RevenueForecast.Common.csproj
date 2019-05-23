@@ -67,6 +67,7 @@
     <Compile Include="Business\MSARepository.cs" />
     <Compile Include="Business\PoHeaderRepository.cs" />
     <Compile Include="Business\SowHeaderRepository.cs" />
+    <Compile Include="Business\SowPlannedRepository.cs" />
     <Compile Include="Data\Customer.cs">
       <DependentUpon>OperationalPortal.tt</DependentUpon>
     </Compile>
@@ -138,32 +139,18 @@
     <Compile Include="Models\Interfaces\IMSA.cs" />
     <Compile Include="Models\Interfaces\IPoHeader.cs" />
     <Compile Include="Models\Interfaces\ISowHeader.cs" />
+    <Compile Include="Models\Interfaces\ISowPlanned.cs" />
     <Compile Include="Models\MSAModel.cs" />
     <Compile Include="Models\PoHeaderModel.cs" />
     <Compile Include="Models\SowHeaderModel.cs" />
+    <Compile Include="Models\SowPlannedModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EntityDeploy Include="Data\OperationalPortal.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>OperationalPortal.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="Data\OperationalPortal.edmx.diagram">
-      <DependentUpon>OperationalPortal.edmx</DependentUpon>
-    </None>
-    <Content Include="NLog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="NLog.xsd">
+    <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Data\OperationalPortal.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>OperationalPortal.edmx</DependentUpon>
@@ -174,6 +161,20 @@
       <DependentUpon>OperationalPortal.edmx</DependentUpon>
       <LastGenOutput>OperationalPortal.cs</LastGenOutput>
     </Content>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Data\OperationalPortal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OperationalPortal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\OperationalPortal.edmx.diagram">
+      <DependentUpon>OperationalPortal.edmx</DependentUpon>
+    </None>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

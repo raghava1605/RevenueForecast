@@ -21,13 +21,12 @@ namespace RevenueForecast.Common.Data
         }
     
         public int PoId { get; set; }
-        public Nullable<int> SowId { get; set; }
+        public Nullable<int> SowHeaderId { get; set; }
         public string PoNo { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
         public string ApprovedBy { get; set; }
         public Nullable<System.DateTime> ApprovedDate { get; set; }
-        public Nullable<long> CustomerId { get; set; }
         public Nullable<decimal> Value { get; set; }
         public string Status { get; set; }
         public Nullable<int> TotalResourceCount { get; set; }

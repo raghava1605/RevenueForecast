@@ -12,8 +12,6 @@ namespace RevenueForecast.Common.Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Core.Objects;
-    using System.Linq;
     
     public partial class OperationalPortalDBEntities : DbContext
     {
@@ -44,26 +42,5 @@ namespace RevenueForecast.Common.Data
         public virtual DbSet<SowHeader> SowHeaders { get; set; }
         public virtual DbSet<SowProject> SowProjects { get; set; }
         public virtual DbSet<UsersInRole> UsersInRoles { get; set; }
-    
-        public virtual int sp_GenerateInvoice(string sowId, int? month, int? year, string pONo)
-        {
-            var sowIdParameter = sowId != null ?
-                new ObjectParameter("SowId", sowId) :
-                new ObjectParameter("SowId", typeof(string));
-    
-            var monthParameter = month.HasValue ?
-                new ObjectParameter("Month", month) :
-                new ObjectParameter("Month", typeof(int));
-    
-            var yearParameter = year.HasValue ?
-                new ObjectParameter("Year", year) :
-                new ObjectParameter("Year", typeof(int));
-    
-            var pONoParameter = pONo != null ?
-                new ObjectParameter("PONo", pONo) :
-                new ObjectParameter("PONo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_GenerateInvoice", sowIdParameter, monthParameter, yearParameter, pONoParameter);
-        }
     }
 }

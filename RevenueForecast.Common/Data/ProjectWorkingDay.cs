@@ -15,11 +15,9 @@ namespace RevenueForecast.Common.Data
     public partial class ProjectWorkingDay
     {
         public int Id { get; set; }
-        public int? Year { get; set; }
+        public Nullable<int> Year { get; set; }
         public string Month { get; set; }
-        public int? WorkingDays { get; set; }
+        public Nullable<int> WorkingDays { get; set; }
         public int SowId { get; set; }
-    
-        public virtual SowHeader SowHeader { get; set; }
     }
 }

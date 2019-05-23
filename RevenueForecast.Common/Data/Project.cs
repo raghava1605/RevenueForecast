@@ -25,7 +25,7 @@ namespace RevenueForecast.Common.Data
         public string CrmId { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
-        public int? CustomerId { get; set; }
+        public Nullable<int> CustomerId { get; set; }
         public string Status { get; set; }
         public string SowName { get; set; }
     

@@ -65,14 +65,13 @@
           <Key>
             <PropertyRef Name="PoId" />
           </Key>
-          <Property Name="PoId" Type="int" Nullable="false" />
-          <Property Name="SowId" Type="int" />
+          <Property Name="PoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SowHeaderId" Type="int" />
           <Property Name="PoNo" Type="varchar" MaxLength="100" />
           <Property Name="StartDate" Type="date" />
           <Property Name="EndDate" Type="date" />
           <Property Name="ApprovedBy" Type="varchar" MaxLength="100" />
           <Property Name="ApprovedDate" Type="date" />
-          <Property Name="CustomerId" Type="bigint" />
           <Property Name="Value" Type="money" />
           <Property Name="Status" Type="varchar" MaxLength="50" />
           <Property Name="TotalResourceCount" Type="int" />
@@ -175,7 +174,7 @@
           <Key>
             <PropertyRef Name="SowId" />
           </Key>
-          <Property Name="SowId" Type="int" Nullable="false" />
+          <Property Name="SowId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="StartDate" Type="date" />
           <Property Name="EndDate" Type="date" />
@@ -248,7 +247,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PoHeader_SowHeader">
+        <Association Name="FK_PoHeader_ToTable">
           <End Role="SowHeader" Type="Self.SowHeader" Multiplicity="0..1" />
           <End Role="PoHeader" Type="Self.PoHeader" Multiplicity="*" />
           <ReferentialConstraint>
@@ -256,7 +255,7 @@
               <PropertyRef Name="SowId" />
             </Principal>
             <Dependent Role="PoHeader">
-              <PropertyRef Name="SowId" />
+              <PropertyRef Name="SowHeaderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -269,18 +268,6 @@
             </Principal>
             <Dependent Role="PoUtilization">
               <PropertyRef Name="PoDId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ProjectWorkingDays_SowHeader">
-          <End Role="SowHeader" Type="Self.SowHeader" Multiplicity="1" />
-          <End Role="ProjectWorkingDays" Type="Self.ProjectWorkingDays" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SowHeader">
-              <PropertyRef Name="SowId" />
-            </Principal>
-            <Dependent Role="ProjectWorkingDays">
-              <PropertyRef Name="SowId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -332,12 +319,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="sp_GenerateInvoice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="rfc">
-          <Parameter Name="SowId" Type="varchar" Mode="In" />
-          <Parameter Name="Month" Type="int" Mode="In" />
-          <Parameter Name="Year" Type="int" Mode="In" />
-          <Parameter Name="PONo" Type="varchar" Mode="In" />
-        </Function>
         <EntityContainer Name="OperationalPortalDBModelStoreContainer">
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="rfc" store:Type="Tables" />
           <EntitySet Name="Holiday" EntityType="Self.Holiday" Schema="rfc" store:Type="Tables" />
@@ -372,17 +353,13 @@
             <End Role="PoHeader" EntitySet="PoHeader" />
             <End Role="PoDetails" EntitySet="PoDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK_PoHeader_SowHeader" Association="Self.FK_PoHeader_SowHeader">
+          <AssociationSet Name="FK_PoHeader_ToTable" Association="Self.FK_PoHeader_ToTable">
             <End Role="SowHeader" EntitySet="SowHeader" />
             <End Role="PoHeader" EntitySet="PoHeader" />
           </AssociationSet>
           <AssociationSet Name="FK_PoUtilization_PoDetails" Association="Self.FK_PoUtilization_PoDetails">
             <End Role="PoDetails" EntitySet="PoDetails" />
             <End Role="PoUtilization" EntitySet="PoUtilization" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ProjectWorkingDays_SowHeader" Association="Self.FK_ProjectWorkingDays_SowHeader">
-            <End Role="SowHeader" EntitySet="SowHeader" />
-            <End Role="ProjectWorkingDays" EntitySet="ProjectWorkingDays" />
           </AssociationSet>
           <AssociationSet Name="FK_ShiftAllowance_ProjectEmployees" Association="Self.FK_ShiftAllowance_ProjectEmployees">
             <End Role="ProjectEmployees" EntitySet="ProjectEmployees" />
@@ -472,19 +449,18 @@
           <Key>
             <PropertyRef Name="PoId" />
           </Key>
-          <Property Name="PoId" Type="Int32" Nullable="false" />
-          <Property Name="SowId" Type="Int32" />
+          <Property Name="PoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SowHeaderId" Type="Int32" />
           <Property Name="PoNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="StartDate" Type="DateTime" Precision="0" />
           <Property Name="EndDate" Type="DateTime" Precision="0" />
           <Property Name="ApprovedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ApprovedDate" Type="DateTime" Precision="0" />
-          <Property Name="CustomerId" Type="Int64" />
           <Property Name="Value" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TotalResourceCount" Type="Int32" />
           <NavigationProperty Name="PoDetails" Relationship="Self.FK_PoDetails_PoHeader" FromRole="PoHeader" ToRole="PoDetails" />
-          <NavigationProperty Name="SowHeader" Relationship="Self.FK_PoHeader_SowHeader" FromRole="PoHeader" ToRole="SowHeader" />
+          <NavigationProperty Name="SowHeader" Relationship="Self.FK_PoHeader_ToTable" FromRole="PoHeader" ToRole="SowHeader" />
         </EntityType>
         <EntityType Name="PoUtilization">
           <Key>
@@ -531,7 +507,6 @@
           <Property Name="Month" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="WorkingDays" Type="Int32" />
           <Property Name="SowId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SowHeader" Relationship="Self.FK_ProjectWorkingDays_SowHeader" FromRole="ProjectWorkingDays" ToRole="SowHeader" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -593,7 +568,7 @@
           <Key>
             <PropertyRef Name="SowId" />
           </Key>
-          <Property Name="SowId" Type="Int32" Nullable="false" />
+          <Property Name="SowId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="StartDate" Type="DateTime" Precision="0" />
           <Property Name="EndDate" Type="DateTime" Precision="0" />
@@ -602,8 +577,7 @@
           <Property Name="SowValue" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="TotalResourceCount" Type="Int32" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_SowHeader_SowHeader" FromRole="SowHeader" ToRole="Customers" />
-          <NavigationProperty Name="PoHeaders" Relationship="Self.FK_PoHeader_SowHeader" FromRole="SowHeader" ToRole="PoHeader" />
-          <NavigationProperty Name="ProjectWorkingDays" Relationship="Self.FK_ProjectWorkingDays_SowHeader" FromRole="SowHeader" ToRole="ProjectWorkingDays" />
+          <NavigationProperty Name="PoHeaders" Relationship="Self.FK_PoHeader_ToTable" FromRole="SowHeader" ToRole="PoHeader" />
         </EntityType>
         <EntityType Name="SowProject">
           <Key>
@@ -683,7 +657,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PoHeader_SowHeader">
+        <Association Name="FK_PoHeader_ToTable">
           <End Role="SowHeader" Type="Self.SowHeader" Multiplicity="0..1" />
           <End Role="PoHeader" Type="Self.PoHeader" Multiplicity="*" />
           <ReferentialConstraint>
@@ -691,7 +665,7 @@
               <PropertyRef Name="SowId" />
             </Principal>
             <Dependent Role="PoHeader">
-              <PropertyRef Name="SowId" />
+              <PropertyRef Name="SowHeaderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -719,18 +693,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ProjectWorkingDays_SowHeader">
-          <End Role="SowHeader" Type="Self.SowHeader" Multiplicity="1" />
-          <End Role="ProjectWorkingDays" Type="Self.ProjectWorkingDay" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SowHeader">
-              <PropertyRef Name="SowId" />
-            </Principal>
-            <Dependent Role="ProjectWorkingDays">
-              <PropertyRef Name="SowId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_UsersInRoles_Roles">
           <End Role="Roles" Type="Self.Role" Multiplicity="1" />
           <End Role="UsersInRoles" Type="Self.UsersInRole" Multiplicity="*" />
@@ -755,7 +717,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="OperationalPortalDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Holidays" EntityType="Self.Holiday" />
           <EntitySet Name="InvoiceMonthlies" EntityType="Self.InvoiceMonthly" />
@@ -793,7 +755,7 @@
             <End Role="PoDetails" EntitySet="PoDetails" />
             <End Role="PoUtilization" EntitySet="PoUtilizations" />
           </AssociationSet>
-          <AssociationSet Name="FK_PoHeader_SowHeader" Association="Self.FK_PoHeader_SowHeader">
+          <AssociationSet Name="FK_PoHeader_ToTable" Association="Self.FK_PoHeader_ToTable">
             <End Role="SowHeader" EntitySet="SowHeaders" />
             <End Role="PoHeader" EntitySet="PoHeaders" />
           </AssociationSet>
@@ -805,10 +767,6 @@
             <End Role="ProjectEmployees" EntitySet="ProjectEmployees" />
             <End Role="ShiftAllowance" EntitySet="ShiftAllowances" />
           </AssociationSet>
-          <AssociationSet Name="FK_ProjectWorkingDays_SowHeader" Association="Self.FK_ProjectWorkingDays_SowHeader">
-            <End Role="SowHeader" EntitySet="SowHeaders" />
-            <End Role="ProjectWorkingDays" EntitySet="ProjectWorkingDays" />
-          </AssociationSet>
           <AssociationSet Name="FK_UsersInRoles_Roles" Association="Self.FK_UsersInRoles_Roles">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="UsersInRoles" EntitySet="UsersInRoles" />
@@ -817,19 +775,13 @@
             <End Role="SowDetail" EntitySet="SowDetails" />
             <End Role="SowDetailActual" EntitySet="SowDetailActuals" />
           </AssociationSet>
-          <FunctionImport Name="sp_GenerateInvoice">
-            <Parameter Name="SowId" Mode="In" Type="String" />
-            <Parameter Name="Month" Mode="In" Type="Int32" />
-            <Parameter Name="Year" Mode="In" Type="Int32" />
-            <Parameter Name="PONo" Mode="In" Type="String" />
-          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OperationalPortalDBModelStoreContainer" CdmEntityContainer="OperationalPortalDBEntities">
+        <EntityContainerMapping StorageEntityContainer="OperationalPortalDBModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="OperationalPortalDBModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
@@ -895,13 +847,12 @@
             <EntityTypeMapping TypeName="OperationalPortalDBModel.PoHeader">
               <MappingFragment StoreEntitySet="PoHeader">
                 <ScalarProperty Name="PoId" ColumnName="PoId" />
-                <ScalarProperty Name="SowId" ColumnName="SowId" />
+                <ScalarProperty Name="SowHeaderId" ColumnName="SowHeaderId" />
                 <ScalarProperty Name="PoNo" ColumnName="PoNo" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
                 <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
                 <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="TotalResourceCount" ColumnName="TotalResourceCount" />
@@ -1041,7 +992,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_GenerateInvoice" FunctionName="OperationalPortalDBModel.Store.sp_GenerateInvoice" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

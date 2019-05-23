@@ -18,7 +18,7 @@ namespace RevenueForecast.Common.Data
         public long PoDId { get; set; }
         public string PoNo { get; set; }
         public Nullable<decimal> PoMonthlyValue { get; set; }
-        public int? Month { get; set; }
+        public Nullable<int> Month { get; set; }
         public Nullable<decimal> PoBalance { get; set; }
         public Nullable<decimal> PoUtilization1 { get; set; }
     

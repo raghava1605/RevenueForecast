@@ -18,7 +18,6 @@ namespace RevenueForecast.Common.Data
         public SowHeader()
         {
             this.PoHeaders = new HashSet<PoHeader>();
-            this.ProjectWorkingDays = new HashSet<ProjectWorkingDay>();
         }
     
         public int SowId { get; set; }
@@ -33,7 +32,5 @@ namespace RevenueForecast.Common.Data
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PoHeader> PoHeaders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProjectWorkingDay> ProjectWorkingDays { get; set; }
     }
 }

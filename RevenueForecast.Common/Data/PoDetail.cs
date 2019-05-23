@@ -23,7 +23,7 @@ namespace RevenueForecast.Common.Data
         public long PoDId { get; set; }
         public int PoId { get; set; }
         public System.DateTime MileStones { get; set; }
-        public int? PoNo { get; set; }
+        public Nullable<int> PoNo { get; set; }
         public Nullable<decimal> Amount { get; set; }
     
         public virtual PoHeader PoHeader { get; set; }
