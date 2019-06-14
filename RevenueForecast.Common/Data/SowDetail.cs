@@ -20,11 +20,8 @@ namespace RevenueForecast.Common.Data
             this.SowDetailActuals = new HashSet<SowDetailActual>();
         }
     
-        public int SowDetailId { get; set; }
-        public string SowId { get; set; }
-        public string RoleName { get; set; }
-        public string RoleDescription { get; set; }
-        public string Location { get; set; }
+        public int SowDetailID { get; set; }
+        public int SowHeaderID { get; set; }
         public decimal BillRate { get; set; }
         public string Currency { get; set; }
         public int HrsPerDay { get; set; }
@@ -33,8 +30,10 @@ namespace RevenueForecast.Common.Data
         public Nullable<int> UtilizationPercentage { get; set; }
         public Nullable<int> SowHrsPerDay { get; set; }
         public Nullable<decimal> SowAmount { get; set; }
-        public Nullable<decimal> CalculatedAmount { get; set; }
+        public Nullable<int> EmployeeID { get; set; }
     
+        public virtual Employee Employee { get; set; }
+        public virtual SowHeader SowHeader { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SowDetailActual> SowDetailActuals { get; set; }
     }

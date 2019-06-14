@@ -1,10 +1,172 @@
-2019-05-15 10:49:12.9903|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-15 11:01:43.9008|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-15 11:01:48.8234|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-15 11:04:44.9636|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-15 11:04:57.4372|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-15 11:50:51.3879|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-15 11:50:59.4402|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-15 15:45:53.5588|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-15 15:45:58.4178|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-15 15:46:06.3707|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
+2019-06-03 12:14:34.7394|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 12:14:36.0774|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 12:14:36.0774|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 12:14:37.7543|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 12:14:37.7543|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 12:15:36.4234|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 12:15:36.4234|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 12:19:50.0442|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 12:20:11.6117|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 12:20:12.4470|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 12:20:12.4470|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 12:32:06.8448|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 12:32:06.8448|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 12:49:21.2038|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 12:49:22.1510|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 12:49:22.1510|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 12:49:26.1597|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 12:49:27.2416|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 12:49:27.2416|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 12:51:43.0448|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 12:51:44.6174|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 12:51:44.6174|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 12:52:52.1964|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 12:52:53.2892|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 12:52:53.2892|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 12:56:23.7362|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 12:56:23.7362|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 12:59:15.4501|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 12:59:20.7526|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 12:59:20.7526|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:01:48.5497|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:01:52.7344|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:01:52.7344|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:03:48.9814|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:04:17.1901|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:04:22.8984|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:04:24.0553|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:04:24.0553|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:05:13.8695|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:05:41.5124|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:05:44.7265|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:05:45.7170|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:05:45.7170|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:06:24.1237|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:06:24.9349|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:06:24.9349|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:06:35.8202|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:06:36.7442|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:06:36.7442|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:06:58.4088|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:06:59.0206|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:06:59.0216|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:10:50.0833|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:20:55.0198|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:20:56.4530|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:20:56.4530|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:21:55.5769|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:21:56.5933|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:21:56.5933|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:21:59.8262|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:21:59.8262|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:22:58.7409|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:23:11.3393|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:23:11.3393|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:23:49.5827|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:24:07.5520|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:24:10.6631|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:24:20.8858|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:24:20.8858|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:24:27.3758|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:24:27.3758|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:26:27.0231|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:27:36.4945|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:27:36.4945|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:27:57.0515|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:27:59.7119|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:27:59.7119|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:28:14.0514|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:28:19.4490|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:28:19.4490|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:28:25.8198|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:29:36.3276|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:29:37.7565|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:29:37.7565|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:29:45.3351|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:29:46.0484|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:29:48.0481|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:29:49.1713|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:29:49.1713|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:30:11.1676|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:31:16.8731|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:31:16.8731|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:31:26.1132|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:31:26.9848|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:31:58.9976|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:32:31.0296|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:32:34.6807|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:32:36.7648|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:32:36.7648|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:32:46.7678|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:33:14.7926|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:33:14.7926|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:33:48.5876|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:38:43.5522|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:38:43.5522|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:40:02.7521|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 13:40:05.7621|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 13:40:05.7621|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 13:40:14.1337|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 14:51:22.2856|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 14:57:02.3452|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 14:57:08.3063|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 14:57:08.3063|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 14:57:47.3677|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 14:57:52.0877|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 14:57:52.0877|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 14:57:55.5307|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 14:57:57.9865|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 14:58:00.1807|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 14:58:00.1807|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 14:58:24.0583|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 14:59:28.3559|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 14:59:31.3182|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 14:59:32.7087|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 14:59:32.7087|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 14:59:35.7064|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 14:59:37.2745|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 14:59:37.2745|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 14:59:40.2261|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 15:00:00.3056|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 15:00:01.9106|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 15:00:01.9106|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 15:00:17.6817|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 15:00:24.5133|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 15:04:44.8087|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
+2019-06-03 15:43:21.4396|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
+2019-06-03 16:01:24.5452|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:01:52.7990|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:02:10.0144|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:02:23.7288|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:03:53.9217|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:04:34.2842|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:04:35.4373|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 16:04:35.4373|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 16:04:41.7034|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:04:54.1418|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:07:06.5404|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:07:49.0786|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:10:38.6228|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:11:27.5989|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:12:15.9607|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:12:33.0056|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:13:14.1860|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:13:30.8110|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:13:42.7544|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:18:13.8240|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 16:25:28.5578|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 16:25:56.1631|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 16:26:14.7898|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 16:27:07.7330|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 17:28:23.2384|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 17:28:46.0988|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 17:29:06.8967|INFO|RevenueForecast.API.Controllers.SowActualDetailController|Get SowActual Details
+2019-06-03 17:29:21.4915|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 17:41:08.5180|INFO|RevenueForecast.API.Controllers.SowActualDetailController|Get SowActual Details
+2019-06-03 18:36:34.8158|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 18:36:36.1188|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations
+2019-06-03 18:36:36.1188|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 18:51:08.3897|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
+2019-06-03 18:54:48.4141|INFO|RevenueForecast.API.Controllers.EmployeeController|Get Customers
+2019-06-03 18:54:49.6009|INFO|RevenueForecast.API.Controllers.EmployeeRolesController|Get Employee Roles
+2019-06-03 18:54:49.6009|INFO|RevenueForecast.API.Controllers.LocationController|Get Locations

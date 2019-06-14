@@ -42,7 +42,7 @@ namespace RevenueForecast.Common.Business
 
         public CustomerModel GetCustomerById(int customerId)
         {
-            var customer = _OperationalPortalEntities.Customers.FirstOrDefault(x => x.CustomerId == customerId);
+            var customer = _OperationalPortalEntities.Customers.FirstOrDefault(x => x.CustomerID == customerId);
             CustomerModel customerObj = Mapper.Map<Customer, CustomerModel>(customer);
             return customerObj;
         }
@@ -53,7 +53,7 @@ namespace RevenueForecast.Common.Business
             try
             {
                 
-                Customer customer = _OperationalPortalEntities.Customers.FirstOrDefault(x => x.CustomerId == customerModel.CustomerId);
+                Customer customer = _OperationalPortalEntities.Customers.FirstOrDefault(x => x.CustomerID == customerModel.CustomerID);
                 if (customer != null)
                 {
                     Mapper.Map(customerModel, customer);
@@ -81,7 +81,7 @@ namespace RevenueForecast.Common.Business
             string result = string.Empty;
             try
             {
-                Customer customer = _OperationalPortalEntities.Customers.FirstOrDefault(x => x.CustomerId == customerId);
+                Customer customer = _OperationalPortalEntities.Customers.FirstOrDefault(x => x.CustomerID == customerId);
                 if (customer != null)
                 {
                     _OperationalPortalEntities.Customers.Remove(customer);

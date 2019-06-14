@@ -12,20 +12,19 @@ namespace RevenueForecast.Common.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class Location
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public Location()
         {
-            this.UsersInRoles = new HashSet<UsersInRole>();
+            this.Employees = new HashSet<Employee>();
         }
     
-        public int Id { get; set; }
-        public int ApplicationId { get; set; }
-        public string RoleName { get; set; }
-        public string Description { get; set; }
+        public int LocationID { get; set; }
+        public string LocationName { get; set; }
+        public bool IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UsersInRole> UsersInRoles { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

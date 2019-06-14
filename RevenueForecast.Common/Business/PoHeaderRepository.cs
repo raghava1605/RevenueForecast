@@ -36,7 +36,7 @@ namespace RevenueForecast.Common.Business
         }
         public PoHeaderModel GetPoHeadersById(int poId)
         {
-            var poHeaders = _OperationalPortalEntities.PoHeaders.FirstOrDefault(x => x.PoId == poId);
+            var poHeaders = _OperationalPortalEntities.PoHeaders.FirstOrDefault(x => x.PoHeaderID == poId);
             PoHeaderModel poHeaderObj = Mapper.Map<PoHeader, PoHeaderModel>(poHeaders);
             return poHeaderObj;
         }
@@ -47,7 +47,7 @@ namespace RevenueForecast.Common.Business
             try
             {
 
-                PoHeader poHeader = _OperationalPortalEntities.PoHeaders.FirstOrDefault(x => x.PoId == poHeaderModel.PoId);
+                PoHeader poHeader = _OperationalPortalEntities.PoHeaders.FirstOrDefault(x => x.PoHeaderID == poHeaderModel.PoHeaderID);
                 if (poHeader != null)
                 {
                     Mapper.Map(poHeaderModel, poHeader);
@@ -76,7 +76,7 @@ namespace RevenueForecast.Common.Business
             string result = string.Empty;
             try
             {
-                PoHeader poHeader = _OperationalPortalEntities.PoHeaders.FirstOrDefault(x => x.PoId == poId);
+                PoHeader poHeader = _OperationalPortalEntities.PoHeaders.FirstOrDefault(x => x.PoHeaderID == poId);
                 if (poHeader != null)
                 {
                     _OperationalPortalEntities.PoHeaders.Remove(poHeader);

@@ -12,23 +12,20 @@ namespace RevenueForecast.Common.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class e
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
+        public e()
         {
-            this.MSAs = new HashSet<MSA>();
-            this.SowHeaders = new HashSet<SowHeader>();
+            this.UsersInRoles = new HashSet<UsersInRole>();
         }
     
-        public int CustomerID { get; set; }
-        public string CustomerName { get; set; }
+        public int RolesID { get; set; }
+        public int ApplicationId { get; set; }
+        public string RoleName { get; set; }
         public string Description { get; set; }
-        public string Owner { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MSA> MSAs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SowHeader> SowHeaders { get; set; }
+        public virtual ICollection<UsersInRole> UsersInRoles { get; set; }
     }
 }

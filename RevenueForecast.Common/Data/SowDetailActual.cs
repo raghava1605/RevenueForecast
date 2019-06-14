@@ -14,23 +14,16 @@ namespace RevenueForecast.Common.Data
     
     public partial class SowDetailActual
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SowDetailActual()
-        {
-            this.InvoiceMonthlies = new HashSet<InvoiceMonthly>();
-        }
-    
-        public long Id { get; set; }
-        public int SowDetailId { get; set; }
+        public long SowDetailActualID { get; set; }
+        public int SowDetailID { get; set; }
         public Nullable<int> UtilizationPercentage { get; set; }
         public Nullable<int> TotalAmount { get; set; }
         public Nullable<int> NoOfDays { get; set; }
-        public int EmpId { get; set; }
         public string Month { get; set; }
         public Nullable<int> Year { get; set; }
+        public int EmployeeID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvoiceMonthly> InvoiceMonthlies { get; set; }
+        public virtual Employee Employee { get; set; }
         public virtual SowDetail SowDetail { get; set; }
     }
 }

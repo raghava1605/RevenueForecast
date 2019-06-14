@@ -17,20 +17,32 @@ namespace RevenueForecast.Common.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SowHeader()
         {
+            this.InvoiceMonthlies = new HashSet<InvoiceMonthly>();
             this.PoHeaders = new HashSet<PoHeader>();
+            this.ShiftAllowances = new HashSet<ShiftAllowance>();
+            this.WorkingDays = new HashSet<WorkingDay>();
+            this.SowDetails = new HashSet<SowDetail>();
         }
     
-        public int SowId { get; set; }
+        public int SowHeaderID { get; set; }
         public string Name { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
         public string ApprovedBy { get; set; }
-        public int CustomerId { get; set; }
+        public int CustomerID { get; set; }
         public Nullable<decimal> SowValue { get; set; }
         public Nullable<int> TotalResourceCount { get; set; }
     
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InvoiceMonthly> InvoiceMonthlies { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PoHeader> PoHeaders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShiftAllowance> ShiftAllowances { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WorkingDay> WorkingDays { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SowDetail> SowDetails { get; set; }
     }
 }

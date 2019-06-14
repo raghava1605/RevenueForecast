@@ -12,12 +12,14 @@ namespace RevenueForecast.Common.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class ProjectWorkingDay
+    public partial class WorkingDay
     {
-        public int Id { get; set; }
+        public int WorkingDaysID { get; set; }
         public Nullable<int> Year { get; set; }
         public string Month { get; set; }
         public Nullable<int> WorkingDays { get; set; }
-        public int SowId { get; set; }
+        public int SowHeaderID { get; set; }
+    
+        public virtual SowHeader SowHeader { get; set; }
     }
 }

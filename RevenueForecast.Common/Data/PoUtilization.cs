@@ -14,9 +14,9 @@ namespace RevenueForecast.Common.Data
     
     public partial class PoUtilization
     {
-        public long PoUId { get; set; }
-        public long PoDId { get; set; }
-        public string PoNo { get; set; }
+        public long PoUtilizationID { get; set; }
+        public long PoDetailsID { get; set; }
+        public string PoNum { get; set; }
         public Nullable<decimal> PoMonthlyValue { get; set; }
         public Nullable<int> Month { get; set; }
         public Nullable<decimal> PoBalance { get; set; }

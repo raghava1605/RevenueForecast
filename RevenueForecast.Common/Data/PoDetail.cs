@@ -20,10 +20,9 @@ namespace RevenueForecast.Common.Data
             this.PoUtilizations = new HashSet<PoUtilization>();
         }
     
-        public long PoDId { get; set; }
-        public int PoId { get; set; }
-        public System.DateTime MileStones { get; set; }
-        public Nullable<int> PoNo { get; set; }
+        public long PoDetailsID { get; set; }
+        public int PoHeaderID { get; set; }
+        public int MileStones { get; set; }
         public Nullable<decimal> Amount { get; set; }
     
         public virtual PoHeader PoHeader { get; set; }

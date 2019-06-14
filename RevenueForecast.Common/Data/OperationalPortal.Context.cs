@@ -33,14 +33,15 @@ namespace RevenueForecast.Common.Data
         public virtual DbSet<PoHeader> PoHeaders { get; set; }
         public virtual DbSet<PoUtilization> PoUtilizations { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
-        public virtual DbSet<ProjectEmployee> ProjectEmployees { get; set; }
-        public virtual DbSet<ProjectWorkingDay> ProjectWorkingDays { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<e> e { get; set; }
         public virtual DbSet<ShiftAllowance> ShiftAllowances { get; set; }
-        public virtual DbSet<SowDetail> SowDetails { get; set; }
+        public virtual DbSet<UsersInRole> UsersInRoles { get; set; }
+        public virtual DbSet<WorkingDay> WorkingDays { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<SowDetailActual> SowDetailActuals { get; set; }
         public virtual DbSet<SowHeader> SowHeaders { get; set; }
-        public virtual DbSet<SowProject> SowProjects { get; set; }
-        public virtual DbSet<UsersInRole> UsersInRoles { get; set; }
+        public virtual DbSet<EmployeeRole> EmployeeRoles { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<SowDetail> SowDetails { get; set; }
     }
 }

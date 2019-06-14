@@ -8,14 +8,14 @@ namespace RevenueForecast.Common.Models
 {
     public class SowHeaderModel
     {
-        public int SowId { get; set; }
+        public int SowHeaderID { get; set; }
         public string Name { get; set; }
-        public DateTime? StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
         public string ApprovedBy { get; set; }
-        public int? CustomerId { get; set; }
-        public decimal? SowValue { get; set; }
-        public int? TotalResourceCount { get; set; }
+        public int CustomerID { get; set; }
+        public Nullable<decimal> SowValue { get; set; }
+        public Nullable<int> TotalResourceCount { get; set; }
 
         public string CustomerName { get; set; }
         public string Description { get; set; }

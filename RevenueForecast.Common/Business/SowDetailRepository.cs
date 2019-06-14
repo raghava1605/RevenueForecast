@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace RevenueForecast.Common.Business
 {
-    public class SowPlannedRepository : ISowPlanned
+    public class SowDetailRepository : ISowPlanned
     {
         #region Variables
         private OperationalPortalDBEntities _OperationalPortalEntities;
         #endregion
 
         #region Constructors
-        public SowPlannedRepository(OperationalPortalDBEntities OperationalPortalEntities)
+        public SowDetailRepository(OperationalPortalDBEntities OperationalPortalEntities)
         {
             _OperationalPortalEntities = OperationalPortalEntities;
         }
@@ -28,26 +28,26 @@ namespace RevenueForecast.Common.Business
         /// Get Customers List 
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<SowPlannedModel> GetSowPlannedDetails()
+        public IEnumerable<SowDetailModel> GetSowPlannedDetails()
         {
             List<SowDetail> sow = _OperationalPortalEntities.SowDetails.ToList();
-            List<SowPlannedModel> sowList = Mapper.Map<List<SowDetail>, List<SowPlannedModel>>(sow);
+            List<SowDetailModel> sowList = Mapper.Map<List<SowDetail>, List<SowDetailModel>>(sow);
             return sowList;
         }
-        public SowPlannedModel GetSowPlannedDetailsById(int sowdetailId)
+        public SowDetailModel GetSowPlannedDetailsById(int sowdetailId)
         {
-            var sowDetail = _OperationalPortalEntities.SowDetails.FirstOrDefault(x => x.SowDetailId == sowdetailId);
-            SowPlannedModel sowDetailObj = Mapper.Map<SowDetail, SowPlannedModel>(sowDetail);
+            var sowDetail = _OperationalPortalEntities.SowDetails.FirstOrDefault(x => x.SowDetailID == sowdetailId);
+            SowDetailModel sowDetailObj = Mapper.Map<SowDetail, SowDetailModel>(sowDetail);
             return sowDetailObj;
         }
 
-        public string SaveSowPlannedDetails(SowPlannedModel sowDetailModel)
+        public string SaveSowPlannedDetails(SowDetailModel sowDetailModel)
         {
             string result = string.Empty;
             try
             {
 
-                SowDetail sowDetail = _OperationalPortalEntities.SowDetails.FirstOrDefault(x => x.SowDetailId == sowDetailModel.SowDetailId);
+                SowDetail sowDetail = _OperationalPortalEntities.SowDetails.FirstOrDefault(x => x.SowDetailID == sowDetailModel.SowDetailID);
                 if (sowDetail != null)
                 {
                     Mapper.Map(sowDetailModel, sowDetail);
@@ -75,7 +75,7 @@ namespace RevenueForecast.Common.Business
             string result = string.Empty;
             try
             {
-                SowDetail sow = _OperationalPortalEntities.SowDetails.FirstOrDefault(x => x.SowDetailId == sowdetailId);
+                SowDetail sow = _OperationalPortalEntities.SowDetails.FirstOrDefault(x => x.SowDetailID == sowdetailId);
                 if (sow != null)
                 {
                     _OperationalPortalEntities.SowDetails.Remove(sow);

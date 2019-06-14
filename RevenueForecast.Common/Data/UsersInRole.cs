@@ -14,9 +14,9 @@ namespace RevenueForecast.Common.Data
     
     public partial class UsersInRole
     {
-        public string UserId { get; set; }
-        public int RoleId { get; set; }
+        public string UserID { get; set; }
+        public int RoleID { get; set; }
     
-        public virtual Role Role { get; set; }
+        public virtual e Role { get; set; }
     }
 }

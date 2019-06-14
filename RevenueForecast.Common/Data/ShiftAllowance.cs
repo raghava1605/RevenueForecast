@@ -14,12 +14,11 @@ namespace RevenueForecast.Common.Data
     
     public partial class ShiftAllowance
     {
-        public int ShiftId { get; set; }
-        public long Id { get; set; }
+        public int ShiftAllowanceID { get; set; }
+        public int SowHeaderID { get; set; }
         public long Amount { get; set; }
-        public int EmpId { get; set; }
-        public long ParentId { get; set; }
+        public int EmployeeID { get; set; }
     
-        public virtual ProjectEmployee ProjectEmployee { get; set; }
+        public virtual SowHeader SowHeader { get; set; }
     }
 }

@@ -14,10 +14,10 @@ namespace RevenueForecast.Common.Data
     
     public partial class InvoiceMonthly
     {
-        public long Id { get; set; }
+        public long InvoiceID { get; set; }
         public string InvoiceNo { get; set; }
-        public Nullable<long> ActualSowDetailId { get; set; }
-        public string SowId { get; set; }
+        public Nullable<long> SowDetailActualID { get; set; }
+        public Nullable<int> SowHeaderID { get; set; }
         public int HoursMonthly { get; set; }
         public Nullable<System.DateTime> SubmittedDate { get; set; }
         public Nullable<System.DateTime> ReceivedDate { get; set; }
@@ -25,8 +25,9 @@ namespace RevenueForecast.Common.Data
         public Nullable<int> Year { get; set; }
         public Nullable<decimal> AdjustedAmount { get; set; }
         public Nullable<decimal> TotalAmount { get; set; }
-        public string PONo { get; set; }
+        public Nullable<int> PoHeaderID { get; set; }
     
-        public virtual SowDetailActual SowDetailActual { get; set; }
+        public virtual PoHeader PoHeader { get; set; }
+        public virtual SowHeader SowHeader { get; set; }
     }
 }

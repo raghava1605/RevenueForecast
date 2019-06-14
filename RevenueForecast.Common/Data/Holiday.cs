@@ -14,7 +14,7 @@ namespace RevenueForecast.Common.Data
     
     public partial class Holiday
     {
-        public int Id { get; set; }
+        public int HolidayID { get; set; }
         public string HolidayName { get; set; }
         public string Location { get; set; }
         public System.DateTime Date { get; set; }

@@ -12,19 +12,19 @@ namespace RevenueForecast.Common.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class ProjectEmployee
+    public partial class EmployeeRole
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProjectEmployee()
+        public EmployeeRole()
         {
-            this.ShiftAllowances = new HashSet<ShiftAllowance>();
+            this.Employees = new HashSet<Employee>();
         }
     
-        public int EmpId { get; set; }
-        public string EmpName { get; set; }
-        public string Status { get; set; }
+        public int RoleID { get; set; }
+        public string RoleName { get; set; }
+        public string RoleDecription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShiftAllowance> ShiftAllowances { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

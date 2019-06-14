@@ -34,16 +34,16 @@ namespace RevenueForecast.Common.Business
         {
             var msa = (from m in _OperationalPortalEntities.MSAs
                        join ms in _OperationalPortalEntities.Customers
-                       on m.CustomerId equals ms.CustomerId
+                       on m.CustomerID equals ms.CustomerID
                        select new MSAModel()
                        {
-                           CustomerId = ms.CustomerId,
+                           CustomerID = ms.CustomerID,
                            CustomerName = ms.CustomerName,
                            Description = ms.Description,
                            StartDate = m.StartDate,
                            EndDate = m.EndDate,
                            ContractType = m.ContractType,
-                           MSAId = m.MSAId,
+                           MSAID = m.MSAID,
                            MSAEntity = m.MSAEntity,
                            Owner = ms.Owner
                        }).ToList();
@@ -54,7 +54,7 @@ namespace RevenueForecast.Common.Business
         }
         public MSAModel GetMSAById(int msaId)
         {
-            var msa = _OperationalPortalEntities.MSAs.FirstOrDefault(x => x.MSAId == msaId);
+            var msa = _OperationalPortalEntities.MSAs.FirstOrDefault(x => x.MSAID == msaId);
             MSAModel msaObj = Mapper.Map<MSA, MSAModel>(msa);
             return msaObj;
         }
@@ -65,7 +65,7 @@ namespace RevenueForecast.Common.Business
             try
             {
 
-                MSA msa = _OperationalPortalEntities.MSAs.FirstOrDefault(x => x.MSAId == msaModel.MSAId);
+                MSA msa = _OperationalPortalEntities.MSAs.FirstOrDefault(x => x.MSAID == msaModel.MSAID);
                 if (msa != null)
                 {
                     Mapper.Map(msaModel, msa);
@@ -74,7 +74,9 @@ namespace RevenueForecast.Common.Business
                 else
                 {
                     msa = new MSA();
+                  
                     Mapper.Map(msaModel, msa);
+                    msa.Customer = null;
                     _OperationalPortalEntities.MSAs.Add(msa);
                     result = "MSA Saved Successfully";
                 }
@@ -93,7 +95,7 @@ namespace RevenueForecast.Common.Business
             string result = string.Empty;
             try
             {
-                MSA msa = _OperationalPortalEntities.MSAs.FirstOrDefault(x => x.MSAId == msaId);
+                MSA msa = _OperationalPortalEntities.MSAs.FirstOrDefault(x => x.MSAID == msaId);
                 if (msa != null)
                 {
                     _OperationalPortalEntities.MSAs.Remove(msa);

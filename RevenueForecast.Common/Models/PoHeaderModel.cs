@@ -8,16 +8,15 @@ namespace RevenueForecast.Common.Models
 {
     public class PoHeaderModel
     {
-        public int PoId { get; set; }
-        public int? SowHeaderId { get; set; }
-        public string PoNo { get; set; }
-        public DateTime? StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
+        public int PoHeaderID { get; set; }
+        public Nullable<int> SowHeaderID { get; set; }
+        public string PoNum { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
         public string ApprovedBy { get; set; }
-        public DateTime? ApprovedDate { get; set; }
-        public long? CustomerId { get; set; }
-        public decimal? Value { get; set; }
+        public Nullable<System.DateTime> ApprovedDate { get; set; }
+        public Nullable<decimal> PoValue { get; set; }
         public string Status { get; set; }
-        public int? TotalResourceCount { get; set; }
+        public Nullable<int> TotalResourceCount { get; set; }
     }
 }

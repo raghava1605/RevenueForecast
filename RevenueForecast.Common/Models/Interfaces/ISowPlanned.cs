@@ -8,9 +8,9 @@ namespace RevenueForecast.Common.Models.Interfaces
 {
     public interface ISowPlanned
     {
-        IEnumerable<SowPlannedModel> GetSowPlannedDetails();
-        SowPlannedModel GetSowPlannedDetailsById(int sowId);
-        string SaveSowPlannedDetails(SowPlannedModel sowPlannedModel);
+        IEnumerable<SowDetailModel> GetSowPlannedDetails();
+        SowDetailModel GetSowPlannedDetailsById(int sowId);
+        string SaveSowPlannedDetails(SowDetailModel sowPlannedModel);
         string DeleteSowPlannedDetail(int sowId);
     }
 }

@@ -33,10 +33,10 @@ namespace RevenueForecast.Common.Business
         {
             var sowHeaderList = (from m in _OperationalPortalEntities.SowHeaders
                                  join ms in _OperationalPortalEntities.Customers
-                               on m.CustomerId equals ms.CustomerId
-                               select new SowHeaderModel()
+                               on m.CustomerID equals ms.CustomerID
+                                 select new SowHeaderModel()
                                {
-                                   CustomerId = ms.CustomerId,
+                                     CustomerID = ms.CustomerID,
                                    CustomerName = ms.CustomerName,
                                    Description = ms.Description,
                                    StartDate = m.StartDate,
@@ -44,7 +44,7 @@ namespace RevenueForecast.Common.Business
                                    ApprovedBy = m.ApprovedBy,
                                    SowValue = m.SowValue,
                                    Name = m.Name,
-                                   SowId = m.SowId,
+                                   SowHeaderID = m.SowHeaderID,
                                    TotalResourceCount = m.TotalResourceCount,
                                    Owner = ms.Owner,
                                }).ToList();
@@ -54,7 +54,7 @@ namespace RevenueForecast.Common.Business
         }
         public SowHeaderModel GetSowHeaderById(int sowId)
         {
-            var sowHeaders = _OperationalPortalEntities.SowHeaders.FirstOrDefault(x => x.SowId == sowId);
+            var sowHeaders = _OperationalPortalEntities.SowHeaders.FirstOrDefault(x => x.SowHeaderID == sowId);
             SowHeaderModel sowheaderObj = Mapper.Map<SowHeader, SowHeaderModel>(sowHeaders);
             return sowheaderObj;
         }
@@ -65,7 +65,7 @@ namespace RevenueForecast.Common.Business
             try
             {
 
-                SowHeader sowHeader = _OperationalPortalEntities.SowHeaders.FirstOrDefault(x => x.SowId == sowHeaderModel.SowId);
+                SowHeader sowHeader = _OperationalPortalEntities.SowHeaders.FirstOrDefault(x => x.SowHeaderID == sowHeaderModel.SowHeaderID);
                 if (sowHeader != null)
                 {
                     Mapper.Map(sowHeaderModel, sowHeader);
@@ -95,7 +95,7 @@ namespace RevenueForecast.Common.Business
             string result = string.Empty;
             try
             {
-                SowHeader sowHeader = _OperationalPortalEntities.SowHeaders.FirstOrDefault(x => x.SowId == sowId);
+                SowHeader sowHeader = _OperationalPortalEntities.SowHeaders.FirstOrDefault(x => x.SowHeaderID == sowId);
                 if (sowHeader != null)
                 {
                     _OperationalPortalEntities.SowHeaders.Remove(sowHeader);

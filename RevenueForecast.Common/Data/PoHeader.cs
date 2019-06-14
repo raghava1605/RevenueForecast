@@ -17,20 +17,23 @@ namespace RevenueForecast.Common.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PoHeader()
         {
+            this.InvoiceMonthlies = new HashSet<InvoiceMonthly>();
             this.PoDetails = new HashSet<PoDetail>();
         }
     
-        public int PoId { get; set; }
-        public Nullable<int> SowHeaderId { get; set; }
-        public string PoNo { get; set; }
+        public int PoHeaderID { get; set; }
+        public Nullable<int> SowHeaderID { get; set; }
+        public string PoNum { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
         public string ApprovedBy { get; set; }
         public Nullable<System.DateTime> ApprovedDate { get; set; }
-        public Nullable<decimal> Value { get; set; }
+        public Nullable<decimal> PoValue { get; set; }
         public string Status { get; set; }
         public Nullable<int> TotalResourceCount { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InvoiceMonthly> InvoiceMonthlies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PoDetail> PoDetails { get; set; }
         public virtual SowHeader SowHeader { get; set; }

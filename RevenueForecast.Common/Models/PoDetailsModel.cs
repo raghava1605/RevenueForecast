@@ -8,10 +8,11 @@ namespace RevenueForecast.Common.Models
 {
     public class PoDetailsModel
     {
-        public long PoDId { get; set; }
-        public int PoId { get; set; }
-        public System.DateTime MileStones { get; set; }
-        public int? PoNo { get; set; }
+        public long PoDetailsID { get; set; }
+        public int PoHeaderID { get; set; }
+        public int MileStones { get; set; }
         public Nullable<decimal> Amount { get; set; }
+
+        public string PoNum { get; set; }
     }
 }

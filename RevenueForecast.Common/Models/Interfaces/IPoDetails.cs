@@ -11,6 +11,6 @@ namespace RevenueForecast.Common.Models.Interfaces
         IEnumerable<PoDetailsModel> GetPoDetails();
         PoDetailsModel GetPoDetailsById(int podId);
         string SavePoDetails(PoDetailsModel poDetailsModel);
-        string DeletePoDetail(int podId);
+        string DeletePoDetails(int podId);
     }
 }

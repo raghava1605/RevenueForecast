@@ -8,13 +8,13 @@ namespace RevenueForecast.Common.Models
 {
     public class SowDetailActualModel
     {
-        public long Id { get; set; }
-        public int SowDetailId { get; set; }
-        public int? UtilizationPercentage { get; set; }
-        public int? TotalAmount { get; set; }
-        public int? NoOfDays { get; set; }
-        public int EmpId { get; set; }
+        public long SowDetailActualID { get; set; }
+        public int SowDetailID { get; set; }
+        public Nullable<int> UtilizationPercentage { get; set; }
+        public Nullable<decimal> TotalAmount { get; set; }
+        public Nullable<int> NoOfDays { get; set; }
+        public int EmployeeID { get; set; }
         public string Month { get; set; }
-        public int? Year { get; set; }
+        public Nullable<int> Year { get; set; }
     }
 }

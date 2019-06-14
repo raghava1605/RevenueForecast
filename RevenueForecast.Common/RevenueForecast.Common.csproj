@@ -64,17 +64,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\CustomerRepository.cs" />
+    <Compile Include="Business\EmployeeRepository.cs" />
+    <Compile Include="Business\EmployeeRolesRepository.cs" />
+    <Compile Include="Business\LocationRepository.cs" />
     <Compile Include="Business\MSARepository.cs" />
+    <Compile Include="Business\PoDetailRepository.cs" />
     <Compile Include="Business\PoHeaderRepository.cs" />
+    <Compile Include="Business\SowActualDetailRepository.cs" />
     <Compile Include="Business\SowHeaderRepository.cs" />
-    <Compile Include="Business\SowPlannedRepository.cs" />
+    <Compile Include="Business\SowDetailRepository.cs" />
     <Compile Include="Data\Customer.cs">
+      <DependentUpon>OperationalPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\e.cs">
+      <DependentUpon>OperationalPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Employee.cs">
+      <DependentUpon>OperationalPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\EmployeeRole.cs">
       <DependentUpon>OperationalPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Holiday.cs">
       <DependentUpon>OperationalPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\InvoiceMonthly.cs">
+      <DependentUpon>OperationalPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Location.cs">
       <DependentUpon>OperationalPortal.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\MSA.cs">
@@ -107,15 +124,6 @@
     <Compile Include="Data\Project.cs">
       <DependentUpon>OperationalPortal.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\ProjectEmployee.cs">
-      <DependentUpon>OperationalPortal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\ProjectWorkingDay.cs">
-      <DependentUpon>OperationalPortal.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Role.cs">
-      <DependentUpon>OperationalPortal.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\ShiftAllowance.cs">
       <DependentUpon>OperationalPortal.tt</DependentUpon>
     </Compile>
@@ -128,20 +136,33 @@
     <Compile Include="Data\SowHeader.cs">
       <DependentUpon>OperationalPortal.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\SowProject.cs">
-      <DependentUpon>OperationalPortal.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\UsersInRole.cs">
       <DependentUpon>OperationalPortal.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\WorkingDay.cs">
+      <DependentUpon>OperationalPortal.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\EmployeeRolesModel.cs" />
     <Compile Include="Models\Interfaces\ICustomer.cs" />
+    <Compile Include="Models\Interfaces\IEmployee.cs" />
+    <Compile Include="Models\Interfaces\IEmployeeRoles.cs" />
+    <Compile Include="Models\Interfaces\ILocation.cs" />
     <Compile Include="Models\Interfaces\IMSA.cs" />
+    <Compile Include="Models\Interfaces\IPoDetails.cs" />
     <Compile Include="Models\Interfaces\IPoHeader.cs" />
+    <Compile Include="Models\Interfaces\ISowDetail.cs" />
+    <Compile Include="Models\Interfaces\ISowActualDetail.cs" />
     <Compile Include="Models\Interfaces\ISowHeader.cs" />
     <Compile Include="Models\Interfaces\ISowPlanned.cs" />
+    <Compile Include="Models\LocationModel.cs" />
     <Compile Include="Models\MSAModel.cs" />
+    <Compile Include="Models\PoDetailsModel.cs" />
     <Compile Include="Models\PoHeaderModel.cs" />
+    <Compile Include="Models\PoUtilizationModel.cs" />
+    <Compile Include="Models\SowDetailActualModel.cs" />
+    <Compile Include="Models\SowDetailModel.cs" />
     <Compile Include="Models\SowHeaderModel.cs" />
     <Compile Include="Models\SowPlannedModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,9 +1,2 @@
-2019-05-13 11:30:15.0869|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-13 11:30:17.4970|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-13 11:35:35.4292|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-13 11:36:11.5691|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-13 11:36:31.3445|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-13 11:36:42.5931|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-13 11:37:42.9241|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-13 11:38:29.0792|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
-2019-05-13 11:39:39.0009|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
+2019-05-30 11:59:48.9989|INFO|RevenueForecast.API.Controllers.CustomerController|Get Customers
+2019-05-30 12:00:18.7407|INFO|RevenueForecast.API.Controllers.SowActualDetailController|Get SowActual Details

@@ -14,13 +14,7 @@ namespace RevenueForecast.Common.Data
     
     public partial class Project
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Project()
-        {
-            this.SowProjects = new HashSet<SowProject>();
-        }
-    
-        public int Id { get; set; }
+        public int ProjectID { get; set; }
         public string Name { get; set; }
         public string CrmId { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
@@ -28,8 +22,5 @@ namespace RevenueForecast.Common.Data
         public Nullable<int> CustomerId { get; set; }
         public string Status { get; set; }
         public string SowName { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SowProject> SowProjects { get; set; }
     }
 }
